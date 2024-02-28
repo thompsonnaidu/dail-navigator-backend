@@ -17,6 +17,7 @@ app.use("/api/user",require("./routes/user.routes"))
 app.use("/api/beckquestion",require("./routes/beckQuestion.routes"))
 app.use("/api/dbtquestion",require("./routes/dbtQuestion.routes"))
 app.use("/api/progressquestion",require("./routes/programQuestion.routes"))
+app.use("/api/client",require("./routes/client.routes"))
 connectDB();
 
 const PORT= process.env.PORT || 8080;

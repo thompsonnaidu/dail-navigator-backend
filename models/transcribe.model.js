@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const Schema=mongoose.Schema;
 // Define TranscribeSession schema
 const TranscribeSessionSchema = new Schema({
-    sessionId: { type: Schema.Types.ObjectId, ref: 'Session', required: true }, // Reference to Session model
-    data: { type: String, required: true }
+  therapistId: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to Session model
+  clientId:{ type: Schema.Types.ObjectId, ref: 'User', required: true }, 
+  session: [{
+    doctor:{ type: String},
+    patient:{ type: String},
+  }]
   });
 
 

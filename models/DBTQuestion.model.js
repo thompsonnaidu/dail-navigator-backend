@@ -13,8 +13,8 @@ const DBTQuestion = new Schema({
     emotional: {
       anxiety: { type: Number, required: true },
       sadness: { type: Number, required: true },
-      Anger: { type: Number, required: true },
-      Shame_guilt: { type: Number, required: true },
+      anger: { type: Number, required: true },
+      shame_guilt: { type: Number, required: true },
       happiness: { type: Number, required: true },
       other: {
         name: { type: String },
@@ -30,7 +30,7 @@ const DBTQuestion = new Schema({
         rating: { type: Number }
       }
     },
-    Behavior: {
+    behavior: {
       self_harm: { type: Boolean, required: true },
       substance_use: { type: Boolean, required: true },
       disordered_eating: { type: Boolean, required: true },
@@ -42,7 +42,7 @@ const DBTQuestion = new Schema({
     dbtSkill: {
       mindfulness: { type: Boolean, required: true },
       distressed_tolerance: { type: Boolean, required: true },
-      emotional_Regulation: { type: Boolean, required: true },
+      emotional_regulation: { type: Boolean, required: true },
       interpersonal_effectiveness: { type: Boolean, required: true },
       Other: {
         name: { type: String },
@@ -52,9 +52,9 @@ const DBTQuestion = new Schema({
     EffectivenessDbtSkill: {
       mindfulness: { type: Number, required: true },
       distressed_tolerance: { type: Number, required: true },
-      emotional_Regulation: { type: Number, required: true },
+      emotional_regulation: { type: Number, required: true },
       interpersonal_effectiveness: { type: Number, required: true },
-      Other: {
+      other: {
         name: { type: String },
         value: { type: Number }
       }
