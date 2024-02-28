@@ -10,7 +10,7 @@ const BECQuestionSchema = new Schema({
       score: { type: Number, required: true }
     }],
     totalScore: { type: Number, required: true },
-    submittedDate: {type:Date},
+    submittedDate: {type:Schema.Types.Date},
     deadline:{type:Date,required:true},
     generatedDate: {type:Date, required:true}
   });

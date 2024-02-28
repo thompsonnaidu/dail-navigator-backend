@@ -22,7 +22,7 @@ router.put('/:id', auth,async (req, res) => {
        if (req.body.submittedDate && new Date(req.body.submittedDate).toISOString() !== question.submittedDate.toISOString()) {
         return res.status(400).json({ message: "Submitted date must match the existing submitted date" });
     }else{
-        req.body["sumbittedDate"]= new Date();
+        req.body["submittedDate"]= new Date();
     }
     
 

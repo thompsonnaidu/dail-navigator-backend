@@ -6,7 +6,7 @@ const ProgramQuestionSchema = new Schema({
       question: { type: String, required: true },
       answer: { type: String, required: true }
     }],
-    sessionId: { type: Schema.Types.ObjectId, ref: 'Session', required: true }, // Reference to Session model
+    transcribeId: { type: Schema.Types.ObjectId, ref: 'T', required: true }, // Reference to Session model
     clientId: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to User model
     therapistId: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to User model
     submittedDate: {type:Date},

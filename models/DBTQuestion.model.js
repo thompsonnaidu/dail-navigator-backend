@@ -49,7 +49,7 @@ const DBTQuestion = new Schema({
         value: { type: Boolean }
       }
     },
-    EffectivenessDbtSkill: {
+    effectivenessDbtSkill: {
       mindfulness: { type: Number, required: true },
       distressed_tolerance: { type: Number, required: true },
       emotional_regulation: { type: Number, required: true },

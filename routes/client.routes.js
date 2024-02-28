@@ -10,13 +10,13 @@ router.get('/pendingtasks', auth,async (req, res) => {
     try {
         const { userDataStore } = req.authUserInfo; 
         // Fetch pending tasks for DBTQuestion where clientId matches authUser
-        const pendingDBT = await DBTQuestion.find({ submittedDate: null, clientId: userDataStore.id });
+        const pendingDBT = await DBTQuestion.find({ submittedDate: null, clientId: userDataStore.id }).populate(['therapistId']);
 
         // Fetch pending tasks for ProgramQuestion where clientId matches authUser
-        const pendingProgram = await ProgramQuestion.find({ submittedDate: null, clientId: userDataStore.id });
+        const pendingProgram = await ProgramQuestion.find({ submittedDate: null, clientId: userDataStore.id }).populate(['therapistId']);
 
         // Fetch pending tasks for BECQuestion where clientId matches authUser
-        const pendingBEC = await BECQuestion.find({ submittedDate: null, clientId: userDataStore.id });
+        const pendingBEC = await BECQuestion.find({ submittedDate: null, clientId: userDataStore.id }).populate(['therapistId']);
 
         // Concatenate and return the list of pending tasks
         const pendingTasks = {dbtTask:[...pendingDBT],programTask:[...pendingProgram], becTask:[...pendingBEC]};
