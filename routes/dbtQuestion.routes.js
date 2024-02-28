@@ -5,7 +5,7 @@ const {DBTQuestion, User} = require('../models/index');
 const auth= require("../middlewares/auth.middlewares");
 
 // POST request to create DBTQuestion
-router.post('/dbtquestion', auth,async (req, res) => {
+router.post('/', auth,async (req, res) => {
     try {
 
         // Check if therapistId and clientId exist in the User model
@@ -51,7 +51,7 @@ router.post('/dbtquestion', auth,async (req, res) => {
 
 
 // PUT request to update DBTQuestion
-router.put('/dbtquestion/:id', auth,async (req, res) => {
+router.put('/:id', auth,async (req, res) => {
     try {
         const { id } = req.params;
         const { userDataStore } = req.authUserInfo; // Assuming auth user information is available in req.authUser
@@ -68,23 +68,26 @@ router.put('/dbtquestion/:id', auth,async (req, res) => {
         // Ensure the submitted date matches the one in the request
         if (req.body.submittedDate && new Date(req.body.submittedDate).toISOString() !== question.submittedDate.toISOString()) {
             return res.status(400).json({ message: "Submitted date must match the existing submitted date" });
+        }else{
+            req.body["submittedDate"]= new Date();
         }
 
         // Ensure all required fields in answers are provided
         const { answers } = req.body;
-        if (!answers || !Array.isArray(answers) || answers.length === 0) {
+        if (!answers) {
             return res.status(400).json({ message: "At least one answer must be provided" });
         }
-        for (const answer of answers) {
-            if (!answer.emotional || !answer.urges || !answer.Behavior || !answer.dbtSkill || !answer.EffectivenessDbtSkill) {
-                return res.status(400).json({ message: "All required fields in answers must be provided" });
-            }
-        }
+        // for (const answer of answers) {
+        //     if (!answer.emotional || !answer.urges || !answer.Behavior || !answer.dbtSkill || !answer.EffectivenessDbtSkill) {
+        //         return res.status(400).json({ message: "All required fields in answers must be provided" });
+        //     }
+        // }
 
         // Prevent updating deadline and generatedDate fields
         delete req.body.deadline;
         delete req.body.generatedDate;
-
+        delete req.body.clientId;
+        delete req.body.therapistId;
         const updatedQuestion = await DBTQuestion.findByIdAndUpdate(id, req.body, { new: true });
         res.json(updatedQuestion);
     } catch (error) {

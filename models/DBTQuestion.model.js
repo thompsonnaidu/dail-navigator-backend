@@ -11,11 +11,11 @@ const DBTQuestion = new Schema({
     
   answers: {
     emotional: {
-      anxiety: { type: Number, required: true },
-      sadness: { type: Number, required: true },
-      anger: { type: Number, required: true },
-      shame_guilt: { type: Number, required: true },
-      happiness: { type: Number, required: true },
+      anxiety: { type: Number,  },
+      sadness: { type: Number, },
+      anger: { type: Number, },
+      shame_guilt: { type: Number, },
+      happiness: { type: Number, },
       other: {
         name: { type: String },
         rating: { type: String }
@@ -23,37 +23,37 @@ const DBTQuestion = new Schema({
     },
     urges: {
       self_harm: { type: String },
-      substance_use: { type: Number, required: true },
-      disordered_eating: { type: Number, required: true },
+      substance_use: { type: Number, },
+      disordered_eating: { type: Number,},
       other: {
         name: { type: String },
         rating: { type: Number }
       }
     },
     behavior: {
-      self_harm: { type: Boolean, required: true },
-      substance_use: { type: Boolean, required: true },
-      disordered_eating: { type: Boolean, required: true },
+      self_harm: { type: Boolean, },
+      substance_use: { type: Boolean, },
+      disordered_eating: { type: Boolean,  },
       other: {
         name: { type: String },
         rating: { type: Boolean }
       }
     },
     dbtSkill: {
-      mindfulness: { type: Boolean, required: true },
-      distressed_tolerance: { type: Boolean, required: true },
-      emotional_regulation: { type: Boolean, required: true },
-      interpersonal_effectiveness: { type: Boolean, required: true },
-      Other: {
+      mindfulness: { type: Boolean},
+      distressed_tolerance: { type: Boolean },
+      emotional_regulation: { type: Boolean, },
+      interpersonal_effectiveness: { type: Boolean, },
+      other: {
         name: { type: String },
         value: { type: Boolean }
       }
     },
     effectivenessDbtSkill: {
-      mindfulness: { type: Number, required: true },
-      distressed_tolerance: { type: Number, required: true },
-      emotional_regulation: { type: Number, required: true },
-      interpersonal_effectiveness: { type: Number, required: true },
+      mindfulness: { type: Number,  },
+      distressed_tolerance: { type: Number,  },
+      emotional_regulation: { type: Number, },
+      interpersonal_effectiveness: { type: Number,  },
       other: {
         name: { type: String },
         value: { type: Number }
